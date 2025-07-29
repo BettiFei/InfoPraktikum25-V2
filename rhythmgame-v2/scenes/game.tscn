@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://drhde16aclh5i"]
+
+[ext_resource type="Script" uid="uid://c3yq25r8wdt01" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://c46n0lt7gau6j" path="res://assets/background_stage.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cmuxqvfrst56w" path="res://scenes/arrow_button.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://l6ycg8kk62y" path="res://scenes/conductor.tscn" id="4_lbhrr"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_uwrxv")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.746575, 0.746575)
+texture = ExtResource("2_lnu2h")
+centered = false
+
+[node name="ArrowLeft" parent="." instance=ExtResource("3_lbhrr")]
+position = Vector2(449, 529)
+frame = 2
+input = "left"
+
+[node name="ArrowUp" parent="." instance=ExtResource("3_lbhrr")]
+position = Vector2(576, 529)
+input = "up"
+
+[node name="ArrowRight" parent="." instance=ExtResource("3_lbhrr")]
+position = Vector2(704, 529)
+frame = 4
+input = "right"
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 29.0
+offset_right = 159.0
+offset_bottom = 52.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ComboLabel" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 66.0
+offset_right = 159.0
+offset_bottom = 89.0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Conductor" parent="." instance=ExtResource("4_lbhrr")]

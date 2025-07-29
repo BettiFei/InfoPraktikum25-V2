@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://cmuxqvfrst56w"]
+
+[ext_resource type="Texture2D" uid="uid://dxwqjmnudt141" path="res://assets/fnf_arrows_spritesheet.png" id="1_0csn0"]
+[ext_resource type="Script" uid="uid://cf3lun7s3s86g" path="res://scripts/arrow_button.gd" id="2_epv2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37j2e"]
+atlas = ExtResource("1_0csn0")
+region = Rect2(268, 0, 134, 139)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh6xg"]
+atlas = ExtResource("1_0csn0")
+region = Rect2(268, 139, 134, 139)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0csn0"]
+atlas = ExtResource("1_0csn0")
+region = Rect2(0, 0, 134, 139)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epv2a"]
+atlas = ExtResource("1_0csn0")
+region = Rect2(0, 139, 134, 139)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lvqa"]
+atlas = ExtResource("1_0csn0")
+region = Rect2(402, 0, 134, 139)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou47u"]
+atlas = ExtResource("1_0csn0")
+region = Rect2(402, 139, 134, 139)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lvqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37j2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh6xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0csn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epv2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou47u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou47u"]
+size = Vector2(38, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shul5"]
+size = Vector2(38, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srqf7"]
+size = Vector2(38, 103)
+
+[node name="ArrowButton" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0lvqa")
+script = ExtResource("2_epv2a")
+
+[node name="PerfectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectArea"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_ou47u")
+debug_color = Color(1.2514e-06, 0.642426, 0.31793, 0.42)
+
+[node name="GoodArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodArea"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_shul5")
+debug_color = Color(0.602898, 0.542247, 0, 0.42)
+
+[node name="OkayArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OkayArea"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_srqf7")
+debug_color = Color(0.955419, 0.212777, 3.85046e-07, 0.42)
+
+[node name="PushTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="area_entered" from="PerfectArea" to="." method="_on_perfect_area_entered"]
+[connection signal="area_exited" from="PerfectArea" to="." method="_on_perfect_area_exited"]
+[connection signal="area_entered" from="GoodArea" to="." method="_on_good_area_entered"]
+[connection signal="area_exited" from="GoodArea" to="." method="_on_good_area_exited"]
+[connection signal="area_entered" from="OkayArea" to="." method="_on_okay_area_entered"]
+[connection signal="area_exited" from="OkayArea" to="." method="_on_okay_area_exited"]
+[connection signal="timeout" from="PushTimer" to="." method="_on_push_timer_timeout"]
