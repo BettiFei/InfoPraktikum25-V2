@@ -51,9 +51,12 @@ angle_max = 41.4
 spread = 180.0
 initial_velocity_max = 597.7
 gravity = Vector3(0, 0, 0)
-scale_max = 5.0
+scale_min = 0.0
+scale_max = 8.0
 scale_curve = SubResource("CurveTexture_njo4t")
-color = Color(0.611765, 0.65098, 0.698039, 1)
+color = Color(1, 0.74902, 0, 1)
+hue_variation_min = -0.11
+hue_variation_max = 0.3
 
 [node name="Note" type="Area2D" groups=["note"]]
 script = ExtResource("1_1bnk6")
@@ -72,7 +75,7 @@ amount = 18
 amount_ratio = 0.7
 lifetime = 0.4
 one_shot = true
-explosiveness = 1.0
+explosiveness = 0.85
 randomness = 0.74
 process_material = SubResource("ParticleProcessMaterial_8ibmt")
 
@@ -88,12 +91,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -14.0
-offset_right = 42.0
-offset_bottom = 14.0
+offset_left = -49.0
+offset_top = -17.0
+offset_right = 49.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 21
 horizontal_alignment = 1
 vertical_alignment = 1
 

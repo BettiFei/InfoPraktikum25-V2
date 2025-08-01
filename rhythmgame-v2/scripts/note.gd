@@ -45,13 +45,13 @@ func destroy(score):
 	hit = true
 	if score == 3:
 		$Node2D/Label.text = "PERFECT"
-		$Node2D/Label.modulate = Color("fdff25")
+		$Node2D/Label.modulate = Color("ffbf00")
 	elif score == 2:
 		$Node2D/Label.text = "GOOD"
-		$Node2D/Label.modulate = Color("ff00ff")
+		$Node2D/Label.modulate = Color("#305CDE")
 	elif score == 1:
 		$Node2D/Label.text = "OKAY"
-		$Node2D/Label.modulate = Color("4eff4d")
+		$Node2D/Label.modulate = Color("#4CBB17")
 
 
 func _on_timer_timeout() -> void:
