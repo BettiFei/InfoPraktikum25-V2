@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drhde16aclh5i"]
+[gd_scene load_steps=6 format=3 uid="uid://drhde16aclh5i"]
 
 [ext_resource type="Script" uid="uid://c3yq25r8wdt01" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c46n0lt7gau6j" path="res://assets/background_stage.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cmuxqvfrst56w" path="res://scenes/arrow_button.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://l6ycg8kk62y" path="res://scenes/conductor.tscn" id="4_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://06ecpgf5utk6" path="res://assets/Duke Dumont - Ocean Drive.wav" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -45,3 +46,5 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Conductor" parent="." instance=ExtResource("4_lbhrr")]
+stream = ExtResource("5_iywne")
+bpm = 115

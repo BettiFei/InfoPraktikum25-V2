@@ -1,0 +1,218 @@
+[gd_scene load_steps=7 format=3 uid="uid://inlncditxf6n"]
+
+[ext_resource type="Script" uid="uid://ywoi03kofl70" path="res://scripts/end.gd" id="1_3d26k"]
+[ext_resource type="Texture2D" uid="uid://c46n0lt7gau6j" path="res://assets/background_stage.png" id="1_mwn6m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d26k"]
+bg_color = Color(0.521569, 0.0431373, 0.313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7m4f"]
+bg_color = Color(1, 0.65098, 0.937255, 0.717647)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvfni"]
+bg_color = Color(0.410398, 0.0246016, 0.243917, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4tl2"]
+bg_color = Color(1, 0.65098, 0.937255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_3d26k")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.747, 0.747)
+texture = ExtResource("1_mwn6m")
+centered = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -44.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(458, 269)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+offset_left = 458.0
+offset_top = 269.0
+offset_right = 718.0
+offset_bottom = 519.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3d26k")
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+offset_left = 491.0
+offset_top = 290.0
+offset_right = 576.0
+offset_bottom = 313.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "final score:"
+
+[node name="ScoreNumber" type="Label" parent="Control"]
+offset_left = 604.0
+offset_top = 290.0
+offset_right = 685.0
+offset_bottom = 313.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "250000"
+horizontal_alignment = 2
+
+[node name="GradeLabel" type="Label" parent="Control"]
+offset_left = 491.0
+offset_top = 320.0
+offset_right = 576.0
+offset_bottom = 343.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "grade:"
+
+[node name="GradeNumber" type="Label" parent="Control"]
+offset_left = 604.0
+offset_top = 320.0
+offset_right = 685.0
+offset_bottom = 343.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "A+"
+horizontal_alignment = 2
+
+[node name="ComboLabel" type="Label" parent="Control"]
+offset_left = 491.0
+offset_top = 350.0
+offset_right = 586.0
+offset_bottom = 373.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "max combo:"
+
+[node name="ComboNumber" type="Label" parent="Control"]
+offset_left = 604.0
+offset_top = 350.0
+offset_right = 685.0
+offset_bottom = 373.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "500"
+horizontal_alignment = 2
+
+[node name="PerfectLabel" type="Label" parent="Control"]
+offset_left = 491.0
+offset_top = 380.0
+offset_right = 586.0
+offset_bottom = 403.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "perfect hits:"
+
+[node name="PerfectNumber" type="Label" parent="Control"]
+offset_left = 604.0
+offset_top = 380.0
+offset_right = 685.0
+offset_bottom = 403.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "100"
+horizontal_alignment = 2
+
+[node name="GoodLabel" type="Label" parent="Control"]
+offset_left = 491.0
+offset_top = 410.0
+offset_right = 586.0
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "good hits:"
+
+[node name="GoodNumber" type="Label" parent="Control"]
+offset_left = 604.0
+offset_top = 410.0
+offset_right = 685.0
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "100"
+horizontal_alignment = 2
+
+[node name="OkayLabel" type="Label" parent="Control"]
+offset_left = 491.0
+offset_top = 440.0
+offset_right = 586.0
+offset_bottom = 463.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "okay hits:"
+
+[node name="OkayNumber" type="Label" parent="Control"]
+offset_left = 604.0
+offset_top = 440.0
+offset_right = 685.0
+offset_bottom = 463.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "100"
+horizontal_alignment = 2
+
+[node name="MissedLabel" type="Label" parent="Control"]
+offset_left = 491.0
+offset_top = 470.0
+offset_right = 586.0
+offset_bottom = 493.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "missed hits:"
+
+[node name="MissedNumber" type="Label" parent="Control"]
+offset_left = 604.0
+offset_top = 470.0
+offset_right = 685.0
+offset_bottom = 493.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "100"
+horizontal_alignment = 2
+
+[node name="ReplayButton" type="Button" parent="Control"]
+offset_left = 390.0
+offset_top = 532.0
+offset_right = 582.0
+offset_bottom = 584.0
+theme_override_colors/font_hover_color = Color(0.483181, 0.0360975, 0.289112, 1)
+theme_override_colors/font_color = Color(0.521569, 0.0431373, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.65098, 0.937255, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_p7m4f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvfni")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4tl2")
+text = "PLAY AGAIN"
+
+[node name="MenuButton" type="Button" parent="Control"]
+offset_left = 594.0
+offset_top = 532.0
+offset_right = 786.0
+offset_bottom = 584.0
+theme_override_colors/font_hover_color = Color(0.483181, 0.0360975, 0.289112, 1)
+theme_override_colors/font_color = Color(0.521569, 0.0431373, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.65098, 0.937255, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_p7m4f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvfni")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4tl2")
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="Control/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="Control/MenuButton" to="." method="_on_menu_button_pressed"]

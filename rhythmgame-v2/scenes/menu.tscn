@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://btc6ui3gqch7d"]
+
+[ext_resource type="Script" uid="uid://c36rpep8la4fv" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://c46n0lt7gau6j" path="res://assets/background_stage.png" id="1_yqeox"]
+[ext_resource type="AudioStream" uid="uid://oioydkwnik04" path="res://assets/Duck Quack.mp3" id="3_con2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(1, 0.65098, 0.937255, 0.717647)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v86rl"]
+bg_color = Color(0.410398, 0.0246016, 0.243917, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+bg_color = Color(1, 0.65098, 0.937255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(1, 0.65098, 0.937255, 0.458824)
+border_width_left = 70
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.651594, 0.935724, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 70.0
+expand_margin_top = 8.0
+expand_margin_right = 4.0
+expand_margin_bottom = 8.0
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0.521569, 0.0431373, 0.313726, 1)
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.521569, 0.0431373, 0.313726, 1)
+corner_radius_top_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ytvr"]
+font_color = Color(0.521569, 0.0431373, 0.313726, 1)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_vjb58")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.747, 0.747)
+texture = ExtResource("1_yqeox")
+centered = false
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 495.0
+offset_top = 342.0
+offset_right = 657.0
+offset_bottom = 394.0
+theme_override_colors/font_hover_color = Color(0.483181, 0.0360975, 0.289112, 1)
+theme_override_colors/font_color = Color(0.521569, 0.0431373, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.65098, 0.937255, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_4ytvr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v86rl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g3eks")
+text = "PLAY"
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+offset_left = 869.0
+offset_top = 114.0
+offset_right = 1072.0
+offset_bottom = 176.0
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_con2f")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_mhnvy")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="VolumeLabel" type="Label" parent="VolumeSlider"]
+layout_mode = 0
+offset_left = -63.0
+offset_top = 19.0
+offset_right = -5.0
+offset_bottom = 42.0
+text = "volume"
+label_settings = SubResource("LabelSettings_4ytvr")
+
+[node name="TestButton" type="Button" parent="."]
+offset_left = 1012.0
+offset_top = 171.0
+offset_right = 1075.0
+offset_bottom = 200.0
+theme_override_colors/font_hover_color = Color(0.483181, 0.0360975, 0.289112, 1)
+theme_override_colors/font_color = Color(0.521569, 0.0431373, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.65098, 0.937255, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_4ytvr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v86rl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g3eks")
+text = "TEST"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TestButton"]
+stream = ExtResource("3_con2f")
+
+[node name="ControlsLabel" type="Label" parent="."]
+offset_left = 490.0
+offset_top = 619.0
+offset_right = 662.0
+offset_bottom = 642.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
+text = "controls: arrows/wasd"
+
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_down"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
