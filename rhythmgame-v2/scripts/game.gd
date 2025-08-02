@@ -35,8 +35,8 @@ func _ready() -> void:
 	#print("height: ", get_viewport_rect().end.x)
 	#print("width: ", get_viewport_rect().end.y)
 	randomize()
-	#$Conductor.play_with_beat_offset(8)
-	$Conductor.play_from_beat(350, 8)
+	$Conductor.play_with_beat_offset(8)
+	#$Conductor.play_from_beat(370, 8)
 	Globals.beat.connect(_on_Conductor_beat)
 	Globals.measure.connect(_on_Conductor_measure)
 
@@ -62,21 +62,74 @@ func _on_Conductor_beat(position):
 	song_position_in_beats = position
 	
 	# changing note spawn behaviour according to beat:
-	if song_position_in_beats > 36:
+	if song_position_in_beats > 36: #verse 1
 		spawn_1_beat = 1
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 0
+	if song_position_in_beats > 67: #bridge 1
+		spawn_1_beat = 0
+		spawn_2_beat = 1
+		spawn_3_beat = 0
+		spawn_4_beat = 2
+	if song_position_in_beats > 100: #refrain 1, part 1
+		spawn_1_beat = 1
+		spawn_2_beat = 2
+		spawn_3_beat = 0
+		spawn_4_beat = 2
+	if song_position_in_beats > 132: #refrain 1, part 2
+		spawn_1_beat = 2
 		spawn_2_beat = 1
 		spawn_3_beat = 1
+		spawn_4_beat = 2
+	if song_position_in_beats > 165: #verse 2
+		spawn_1_beat = 0
+		spawn_2_beat = 1
+		spawn_3_beat = 0
 		spawn_4_beat = 1
-	
-	# song over, don't spawn any new notes:
-	if song_position_in_beats > 364:
+	if song_position_in_beats > 195: #bridge 2
+		spawn_1_beat = 2
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 0
+	if song_position_in_beats > 229: #refrain 2, part 1
+		spawn_1_beat = 2
+		spawn_2_beat = 1
+		spawn_3_beat = 0
+		spawn_4_beat = 2
+	if song_position_in_beats > 260: #refrain 2, part 2
+		spawn_1_beat = 1
+		spawn_2_beat = 2
+		spawn_3_beat = 2
+		spawn_4_beat = 1
+	if song_position_in_beats > 293: #bridge 3
+		spawn_1_beat = 0
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 2
+	if song_position_in_beats > 324: #refrain 3, part 1
+		spawn_1_beat = 1
+		spawn_2_beat = 2
+		spawn_3_beat = 1
+		spawn_4_beat = 2
+	if song_position_in_beats > 354: #refrain 3, part 2
+		spawn_1_beat = 1
+		spawn_2_beat = 2
+		spawn_3_beat = 2
+		spawn_4_beat = 2
+	if song_position_in_beats > 388: #outro
+		spawn_1_beat = 0
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 0
+	if song_position_in_beats > 397: #song over
 		spawn_1_beat = 0
 		spawn_2_beat = 0
 		spawn_3_beat = 0
 		spawn_4_beat = 0
 		
 	# saving scores for end of game overview:
-	if song_position_in_beats > 371:
+	if song_position_in_beats > 400:
 		Globals.set_score(score)
 		Globals.combo = max_combo
 		Globals.perfect = perfect
@@ -119,14 +172,14 @@ func increment_score(by):
 		missed += 1
 		
 	score += by * combo
-	$ScoreLabel.text = str(score)
+	$Control/ScoreLabel.text = str(score)
 	if combo > 0:
-		$ComboLabel.text = str(combo) + " combo!"
+		$Control/ComboLabel.text = str(combo) + " combo!"
 		if combo > max_combo:
 			max_combo = combo
 	else:
-		$ComboLabel.text = ""
+		$Control/ComboLabel.text = ""
 
 func reset_combo():
 	combo = 0
-	$ComboLabel.text = ""
+	$Control/ComboLabel.text = ""

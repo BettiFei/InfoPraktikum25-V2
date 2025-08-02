@@ -61,6 +61,7 @@ grow_vertical = 2
 pivot_offset = Vector2(458, 269)
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
 offset_left = 458.0
 offset_top = 269.0
 offset_right = 718.0
@@ -68,6 +69,7 @@ offset_bottom = 519.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3d26k")
 
 [node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 290.0
 offset_right = 576.0
@@ -76,6 +78,7 @@ theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "final score:"
 
 [node name="ScoreNumber" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 290.0
 offset_right = 685.0
@@ -85,6 +88,7 @@ text = "250000"
 horizontal_alignment = 2
 
 [node name="GradeLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 320.0
 offset_right = 576.0
@@ -93,6 +97,7 @@ theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "grade:"
 
 [node name="GradeNumber" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 320.0
 offset_right = 685.0
@@ -102,6 +107,7 @@ text = "A+"
 horizontal_alignment = 2
 
 [node name="ComboLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 350.0
 offset_right = 586.0
@@ -110,6 +116,7 @@ theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "max combo:"
 
 [node name="ComboNumber" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 350.0
 offset_right = 685.0
@@ -119,6 +126,7 @@ text = "500"
 horizontal_alignment = 2
 
 [node name="PerfectLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 380.0
 offset_right = 586.0
@@ -127,6 +135,7 @@ theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "perfect hits:"
 
 [node name="PerfectNumber" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 380.0
 offset_right = 685.0
@@ -136,6 +145,7 @@ text = "100"
 horizontal_alignment = 2
 
 [node name="GoodLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 410.0
 offset_right = 586.0
@@ -144,6 +154,7 @@ theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "good hits:"
 
 [node name="GoodNumber" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 410.0
 offset_right = 685.0
@@ -153,6 +164,7 @@ text = "100"
 horizontal_alignment = 2
 
 [node name="OkayLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 440.0
 offset_right = 586.0
@@ -161,6 +173,7 @@ theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "okay hits:"
 
 [node name="OkayNumber" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 440.0
 offset_right = 685.0
@@ -170,6 +183,7 @@ text = "100"
 horizontal_alignment = 2
 
 [node name="MissedLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 491.0
 offset_top = 470.0
 offset_right = 586.0
@@ -178,6 +192,7 @@ theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "missed hits:"
 
 [node name="MissedNumber" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 470.0
 offset_right = 685.0
@@ -187,6 +202,7 @@ text = "100"
 horizontal_alignment = 2
 
 [node name="ReplayButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 390.0
 offset_top = 532.0
 offset_right = 582.0
@@ -201,6 +217,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_s4tl2")
 text = "PLAY AGAIN"
 
 [node name="MenuButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 594.0
 offset_top = 532.0
 offset_right = 786.0

@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://drhde16aclh5i"]
+[gd_scene load_steps=7 format=3 uid="uid://drhde16aclh5i"]
 
 [ext_resource type="Script" uid="uid://c3yq25r8wdt01" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c46n0lt7gau6j" path="res://assets/background_stage.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cmuxqvfrst56w" path="res://scenes/arrow_button.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://l6ycg8kk62y" path="res://scenes/conductor.tscn" id="4_lbhrr"]
-[ext_resource type="AudioStream" uid="uid://06ecpgf5utk6" path="res://assets/Duke Dumont - Ocean Drive.wav" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://15t0utohdcl4" path="res://assets/Duke Dumont - Ocean Drive.wav" id="5_iywne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.521569, 0.0431373, 0.313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 4
+shadow_offset = Vector2(3.045, 3.78)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -28,23 +37,48 @@ position = Vector2(704, 529)
 frame = 4
 input = "right"
 
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = 25.0
-offset_top = 29.0
-offset_right = 159.0
-offset_bottom = 52.0
+[node name="Conductor" parent="." instance=ExtResource("4_lbhrr")]
+stream = ExtResource("5_iywne")
+bpm = 115
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -229.0
+offset_right = -418.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(458, 269)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 269.0
+offset_right = 603.0
+offset_bottom = 358.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iywne")
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+offset_left = 461.0
+offset_top = 282.0
+offset_right = 580.0
+offset_bottom = 305.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ComboLabel" type="Label" parent="."]
-offset_left = 25.0
-offset_top = 66.0
-offset_right = 159.0
-offset_bottom = 89.0
+[node name="ComboLabel" type="Label" parent="Control"]
+offset_left = 461.0
+offset_top = 315.0
+offset_right = 580.0
+offset_bottom = 338.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.937255, 1)
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[node name="Conductor" parent="." instance=ExtResource("4_lbhrr")]
-stream = ExtResource("5_iywne")
-bpm = 115
