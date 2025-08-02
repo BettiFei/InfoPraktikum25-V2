@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btc6ui3gqch7d"]
+[gd_scene load_steps=16 format=3 uid="uid://btc6ui3gqch7d"]
 
 [ext_resource type="Script" uid="uid://c36rpep8la4fv" path="res://scripts/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://c46n0lt7gau6j" path="res://assets/background_stage.png" id="1_yqeox"]
@@ -65,6 +65,40 @@ expand_margin_bottom = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ytvr"]
 font_color = Color(0.521569, 0.0431373, 0.313726, 1)
+
+[sub_resource type="Gradient" id="Gradient_con2f"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.296875, 0.659375)
+colors = PackedColorArray(1, 0, 1, 1, 0.992157, 1, 0.145098, 1, 0.305882, 1, 0.301961, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_43c4j"]
+gradient = SubResource("Gradient_con2f")
+
+[sub_resource type="Curve" id="Curve_mhnvy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_njo4t"]
+curve = SubResource("Curve_mhnvy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ytvr"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 26.6
+emission_ring_inner_radius = 26.6
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 41.4
+spread = 180.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 105.88
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_njo4t")
+color_initial_ramp = SubResource("GradientTexture1D_43c4j")
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_vjb58")
@@ -139,6 +173,19 @@ text = "TEST"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TestButton"]
 stream = ExtResource("3_con2f")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="TestButton"]
+show_behind_parent = true
+position = Vector2(31, 15)
+scale = Vector2(1.405, 1.405)
+emitting = false
+amount = 98
+amount_ratio = 0.7
+lifetime = 0.42
+one_shot = true
+explosiveness = 0.85
+randomness = 0.74
+process_material = SubResource("ParticleProcessMaterial_4ytvr")
 
 [node name="ControlsLabel" type="Label" parent="."]
 offset_left = 490.0

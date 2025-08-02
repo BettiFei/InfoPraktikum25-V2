@@ -13,6 +13,7 @@ func _on_volume_slider_value_changed(value):
 
 func _on_test_button_pressed() -> void:
 	$TestButton/AudioStreamPlayer.play()
+	$TestButton/GPUParticles2D.emitting = true
 
 
 func _on_quit_button_pressed() -> void:

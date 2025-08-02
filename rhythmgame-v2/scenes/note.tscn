@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://butm628jpltqp"]
+[gd_scene load_steps=13 format=3 uid="uid://butm628jpltqp"]
 
 [ext_resource type="Script" uid="uid://yst11wmahv7f" path="res://scripts/note.gd" id="1_1bnk6"]
 [ext_resource type="Texture2D" uid="uid://dxwqjmnudt141" path="res://assets/fnf_arrows_spritesheet.png" id="1_t3yvt"]
@@ -35,28 +35,39 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixjtm"]
 size = Vector2(42, 38)
 
+[sub_resource type="Gradient" id="Gradient_1bnk6"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.296875, 0.659375)
+colors = PackedColorArray(1, 0, 1, 1, 0.992157, 1, 0.145098, 1, 0.305882, 1, 0.301961, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1bnk6"]
+gradient = SubResource("Gradient_1bnk6")
+
 [sub_resource type="Curve" id="Curve_43c4j"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_njo4t"]
+[sub_resource type="CurveTexture" id="CurveTexture_43c4j"]
 curve = SubResource("Curve_43c4j")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ibmt"]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 5.63
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 26.6
+emission_ring_inner_radius = 26.6
+emission_ring_cone_angle = 90.0
 angle_min = 1.07288e-05
 angle_max = 41.4
 spread = 180.0
-initial_velocity_max = 597.7
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 105.88
 gravity = Vector3(0, 0, 0)
 scale_min = 0.0
 scale_max = 8.0
-scale_curve = SubResource("CurveTexture_njo4t")
-color = Color(1, 0.74902, 0, 1)
-hue_variation_min = -0.11
-hue_variation_max = 0.3
+scale_curve = SubResource("CurveTexture_43c4j")
+color_initial_ramp = SubResource("GradientTexture1D_1bnk6")
 
 [node name="Note" type="Area2D" groups=["note"]]
 script = ExtResource("1_1bnk6")
@@ -71,9 +82,9 @@ shape = SubResource("RectangleShape2D_ixjtm")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 scale = Vector2(0.5, 0.5)
 emitting = false
-amount = 18
+amount = 98
 amount_ratio = 0.7
-lifetime = 0.4
+lifetime = 0.42
 one_shot = true
 explosiveness = 0.85
 randomness = 0.74
