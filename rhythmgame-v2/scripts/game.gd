@@ -35,8 +35,8 @@ func _ready() -> void:
 	#print("height: ", get_viewport_rect().end.x)
 	#print("width: ", get_viewport_rect().end.y)
 	randomize()
-	#$Conductor.play_with_beat_offset(8)
-	$Conductor.play_from_beat(269, 8)
+	$Conductor.play_with_beat_offset(8)
+	#$Conductor.play_from_beat(269, 8)
 	Globals.beat.connect(_on_Conductor_beat)
 	Globals.measure.connect(_on_Conductor_measure)
 

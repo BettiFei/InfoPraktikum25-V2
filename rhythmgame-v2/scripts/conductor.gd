@@ -26,6 +26,8 @@ func _physics_process(delta: float) -> void:
 		song_position -= AudioServer.get_output_latency()
 		song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
 		report_beat()
+	
+	#print(closest_beat(1.0))
 
 func report_beat():
 	# reporting most recent beat and measure that were passed:
